@@ -5,12 +5,12 @@ import NotificationButton from '@/components/NotificationButton'
 import Footer from '@/components/Footer'
 
 const Layout = () => {
-    const {} = useNotification()
+    const { sendTestNotification } = useNotification()
 
     return (
         <>
             <Header />
-            <NotificationButton />
+            <NotificationButton action={sendTestNotification} />
             <Outlet />
             <Footer />
         </>
