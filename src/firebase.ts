@@ -39,7 +39,7 @@ export const onMessageListener = () =>
         onMessage(messaging, (payload) => {
             console.log('Notificação em primeiro plano', payload)
 
-            const notificationTitle = payload.notification?.title
+            const notificationTitle = payload.notification?.title || 'Nova notificação'
             const notificationOptions = {
                 body: payload.notification?.body,
             }

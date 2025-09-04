@@ -17,7 +17,7 @@ const messaging = getMessaging()
 onBackgroundMessage(messaging, (payload) => {
     console.log('Notificação em segundo plano', payload)
 
-    const notificationTitle = payload.notification?.title
+    const notificationTitle = payload.notification?.title || 'Nova notificação'
     const notificationOptions = {
         body: payload.notification?.body,
     }
