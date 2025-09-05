@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app'
-import { getMessaging, getToken, onMessage } from 'firebase/messaging'
+import { getMessaging, getToken, onMessage, type MessagePayload } from 'firebase/messaging'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -34,7 +34,7 @@ export const requestToken = async () => {
     }
 }
 
-export const onMessageListener = () =>
+export const onMessageListener = (): Promise<MessagePayload> =>
     new Promise(resolve => {
         onMessage(messaging, (payload) => {
             console.log('Notificação em primeiro plano', payload)
