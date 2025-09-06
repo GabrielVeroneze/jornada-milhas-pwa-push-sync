@@ -22,6 +22,14 @@ self.addEventListener('fetch', (event) => {
             return response
         } catch {
             await queue.pushRequest({ request: event.request })
+
+            return new Response(
+                JSON.stringify({ success: false, queued: true }),
+                {
+                    status: 503,
+                    headers: { 'Content-Type': 'application/json' },
+                }
+            )
         }
     }
 
