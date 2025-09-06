@@ -1,3 +1,4 @@
+import { useReserva } from '@/hooks/useReserva'
 import type { Card } from '@/types/Card'
 import Button from '@/components/Button'
 import * as Styled from './styled'
@@ -7,6 +8,8 @@ interface ReserveCardProps {
 }
 
 const ReserveCard = ({ card }: ReserveCardProps) => {
+    const { reservar } = useReserva()
+
     return (
         <Styled.Card>
             <div>
@@ -33,7 +36,7 @@ const ReserveCard = ({ card }: ReserveCardProps) => {
             <div>
                 <Styled.Heading>Valor final</Styled.Heading>
                 <Styled.Price>R$ {card.valor}</Styled.Price>
-                <Button>Concluir reserva</Button>
+                <Button onClick={() => reservar(card)}>Concluir reserva</Button>
             </div>
         </Styled.Card>
     )
